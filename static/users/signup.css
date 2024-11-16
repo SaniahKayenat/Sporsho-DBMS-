@@ -1,0 +1,93 @@
+@font-face {
+	font-family: 'MyCustomFont';
+	src:url('Fonts/Product\ Sans\ Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+  }
+
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'MyCustomFont',Arial, sans-serif;
+	background-image: url('Images/background-image.jpg');
+	background-size: cover;
+	
+}
+
+.signup-form {
+	float: right;
+	position: relative;
+	right: 8%;
+	width: 20%;
+	height: 600px;
+	background-color: rgba(255,255,255, 0.35);
+	backdrop-filter: blur(8px);
+	color: #ffffff;
+	padding-top: 2.5%;
+	padding-left: 1%;
+	padding-right: 1%;
+	margin: 8% auto 0%;
+	text-align: center;
+	border-radius: 15px;
+}
+
+.input-box {
+	border-left: 0;
+	border-right: 0;
+	border-top: 0;
+	border-bottom: 1px solid #fff; 
+  	outline: None;
+	background: transparent;
+	padding: 20px 10px 5px 10px; 
+  	font-size: 16px; 
+  	width: 85%;
+	
+}
+.signup-btn {
+	background: transparent;
+  	border: 2px solid #fff; 
+  	border-radius: 12px; 
+  	color: #fff; 
+  	padding: 7px 40px 7px 40px; 
+  	font-size: 14px; 
+  	cursor: pointer;
+}
+
+.header {
+	font-family: 'MyCustomFont';
+	font-size: x-large;
+}
+
+::placeholder {
+	color: #fff;
+	opacity: 1; /* Firefox */
+	font-family: 'MyCustomFont';
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: #fff;
+   font-family: 'MyCustomFont';
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+   color: #ffffff;
+   font-family: 'MyCustomFont';
+  }
+
+  @media only screen and (max-width: 768px) {
+	.signup-form {
+		right: 8%;
+		width: 20%;
+		height: 600px;
+		background-color: rgba(255,255,255, 0.35);
+		backdrop-filter: blur(8px);
+		color: #ffffff;
+		padding-top: 2.5%;
+		padding-left: 1%;
+		padding-right: 1%;
+		margin: 8% auto 0%;
+		text-align: center;
+		border-radius: 15px;
+	}
+}

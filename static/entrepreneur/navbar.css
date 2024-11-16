@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'MyCustomFont';
+    src:url('Fonts/Product\ Sans\ Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  body {
+        background-color: #F8F9FD;
+  }
+
+* {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      
+
+}
+
+li,a,button {
+        color: #000000;
+        text-decoration: none;
+        font-family: 'MyCustomFont';
+}
+
+header {
+        background-color: #ffffff;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 12px 8%;
+        
+}
+
+.logo {
+        cursor: pointer;
+        margin-right: auto;
+
+}
+
+.nav_links {
+        list-style: none;
+}
+
+.nav_links li {
+        display: inline-block;
+        padding: 0px 20px;
+}
+
+.nav_links li a {
+        transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+        transition: all 0.3s ease 0s;
+        color: #F765A3;
+}
+
+.lg_out_btn {
+        margin-left: 20px;
+        padding: 9px 25px;
+        background-color: #ffffff;
+        border:2px solid black;
+        border-color: #F765A3;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+}
+
+.lg_out_btn:hover {
+        background-color: #F765A3;
+        
+}
+
+.cta:hover {
+        color: #ffffff;
+}

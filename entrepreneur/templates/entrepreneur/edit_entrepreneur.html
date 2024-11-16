@@ -1,0 +1,33 @@
+{% extends "entrepreneur/base.html" %}
+
+{%block content %} 
+<div  class="">
+    <br>
+    <h1 style = 'text-align: center;'>
+        Edit Entrepreneur
+    </h1>
+    <br>
+    <form action =''class="" method = "post" enctype = "multipart/form-data">
+                <div class="for_forms">
+                {% csrf_token %}
+               
+                {% for field in edit_form %}
+                    
+                    <label class="label_text" for="{{ field.auto_id }}">{{ field.label }}</label>
+                    {{ field }}
+                    <br>
+                    <br>
+                  
+                {% endfor %}
+                </div>
+                
+                <div class="btn_container">
+                    <button class="cancel"><a id = 'cancel-btn' class="cancel_a" href="{% url 'entrepreneur' %}">Cancel</a></button>
+                    <button class = 'lg_out_btn' id = 'submit_btn' type="submit"><a class="search_text">Submit</a></button>
+                    
+                </div>
+       
+    </form>
+</div>
+
+{%endblock %}

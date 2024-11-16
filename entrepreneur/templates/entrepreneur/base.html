@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sporsho DBMS</title>
+    
+    <link rel="stylesheet" type='text/css' href="{% static 'entrepreneur/navbar.css'%}">
+    <link rel="stylesheet" type='text/css' href="{% static 'entrepreneur/additional.css'%}">
+   
+</head>
+<body>
+    <header>
+        <img class="logo" src="{% static 'users/Images/sporsho-Colored.png' %}" alt="logo" width="28.5px" height="42.5px">
+        <nav>
+          <ul class="nav_links">
+            <li><a href="{% url 'entrepreneur' %}">Entrepreneurs</a></li>
+            <li><a href="{% url 'cow' %}">Cows</a></li>
+          
+          </ul>
+        </nav>
+        {% if user.is_authenticated %}
+        <button class="lg_out_btn"><a class="cta " href="{% url 'logout' %}">Logout</a></button>
+        {% else %}
+        <button class="lg_out_btn"><a class="cta" href="{% url 'login' %}"> Login</a></button>
+        {% endif %}
+      </header>
+      {% block content %}
+    {% endblock %}
+</body>
+</html>

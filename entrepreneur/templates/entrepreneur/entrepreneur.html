@@ -1,0 +1,68 @@
+{% extends "entrepreneur/base.html" %}
+
+{% block content %}
+    
+        <div class="">
+        <div class = 'for_table_title_section'>
+            <span class="table_title "><b>Entrepreneurs</b></span>
+            <button class="add right_btn"><a  class='add_a' href="{% url 'add_entrepreneur' %}">+&nbsp;&nbsp;&nbsp;Add New Entrepreneur</a></button>
+            <button class="lg_out_btn right_btn" onClick="window.location.reload()"><a class="search_text">Refresh</a></button>
+        </div>
+        
+        
+
+        <div class="for_search">
+        <form action = "{% url 'search' %}" method ="post" class = ''>
+            {% csrf_token %}
+            <input type="text" name = 'search' class="for_search_inputs" placeholder="Search By Anything">
+            <button type="submit" class="lg_out_btn"><a class='search_text'>Search</a></button>
+        </form>
+    </div>
+       <br>
+        <div class="for_table" >
+            <table class="cow_tab">
+                <tr class="cow_tab_tr">
+                    <th class="cow_tab_th_td">
+                        Sl
+                    </th>
+                    <th class="cow_tab_th_td">
+                        Name of the Entreprenur
+                    </th>
+                    <th class="cow_tab_th_td">
+                        ID
+                    </th>
+                    <th class="cow_tab_th_td">
+                        District
+                    </th>
+                    <th class="cow_tab_th_td">
+                        Upazilla
+                    </th>
+                    <th class="cow_tab_th_td">
+                        Last Updated Date
+                    </th>
+                    <th class="cow_tab_th_td">
+                        Actions
+                    </th>
+                </tr>
+                
+                {% for row  in rows %}
+                    <tr class="cow_tab_tr">
+                       
+                        <td class="cow_tab_th_td">{{ forloop.counter }}</td>
+                        <td class="cow_tab_th_td">{{row.name_of_the_entrepreneur}}</td>
+                        <td class="cow_tab_th_td">{{row.id}}</td>
+                        <td class="cow_tab_th_td">{{row.district}}</td>
+                        <td class="cow_tab_th_td">{{row.upazilla}}</td>
+                        <td class="cow_tab_th_td">{{row.last_updated_date}}</td>
+                        <td class="cow_tab_th_td">
+                            <a class="view_edit" href="{% url 'edit_entrepreneur' row.id %}">Edit</a>
+                            <a class="view_edit" href="{% url 'view_entrepreneur' row.id %}">View</a>
+                            
+                        </td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
+    </div>
+
+    {% endblock content %}

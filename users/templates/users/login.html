@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Signup Page</title>
+    
+	<link rel="stylesheet" type="text/css" href="{% static 'users/signup.css' %}">
+</head>
+<body>
+	<div class="signup-form">
+		<br>
+		<img src="{% static 'users/Images/sporsho-white.png' %}" align="center" width="17%" height="17%">
+		<br>
+		<p class="header">Sign In</p>
+        <form method="POST">
+            {% csrf_token %}
+          
+          
+            <input name="username" class="input-box" placeholder="Username"><br><br>
+			<input name="password" class="input-box" placeholder="Password"><br><br><br>
+
+            
+            <div class="form-group">
+                <button class="signup-btn" type="submit">Log In</button>
+            </div>
+        </form>
+	</div>
+</body>
+</html>

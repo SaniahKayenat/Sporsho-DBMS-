@@ -1,0 +1,141 @@
+{% extends "entrepreneur/base.html" %}
+{%load static %}
+{% block content %}
+    
+    <div id="cow_update_table">
+        <section class="">
+            <br>
+            <h2 style="text-align: center;">{{cow.name_of_cow}}</h2>
+            <h5 style="text-align: center;">Owner :</span> {{cow.owner}}</h5><br>
+            <div class = 'cow_data'>
+                <span style = 'padding-right: 3%;'> Breed : {{cow.breed}} </span>
+                <span style = 'padding-right: 3%;'> Date of Birth : {{cow.date_of_birth}} </span>
+                <span style = 'padding-right: 3%;'> Color: {{cow.color}} </span>
+            </div>
+        </section>
+        <br>
+        <div class="for_table_cow_view">
+            <table class="cow_tab" id="printTable">
+                <tr class="cow_tab_tr">
+                    <th class="view_cow_update_th_td" rowspan="2">Image</th>
+                    <th class="view_cow_update_th_td" rowspan="2">Month</th>
+                    <th class="view_cow_update_th_td" rowspan="2">Year</th>
+                    <th class="view_cow_update_th_td" rowspan="2">Weight</th>
+                    <th class="view_cow_update_th_td" rowspan="2">Monthly Food Expenditure</th>
+                    <th class="view_cow_update_th_td" colspan="3">Food Structure</th>
+                    <th class="view_cow_update_th_td" colspan="3">Vaccination Info</th>
+                    <th class="view_cow_update_th_td" colspan="3">Healthcare Info</th>
+                    
+
+                    
+                </tr>
+                <tr class="cow_tab_tr">
+                        <th class="view_cow_update_th_td">
+                            Monthly Food Consumed
+                        </th>
+                        <th class="view_cow_update_th_td">
+                            Grass (in %)
+                        </th>
+                        <th class="view_cow_update_th_td">
+                            Solid Food (in %)
+                        </th>
+                        <th class="view_cow_update_th_td">
+                            Torka
+                        </th>
+                        <th class="view_cow_update_th_td">
+                            Kurha
+                        </th>
+                        <th class="view_cow_update_th_td">
+                            Badla
+                        </th>
+                        <th class="view_cow_update_th_td">
+                            Name
+                        </th>
+                        <th class="view_cow_update_th_td">
+                            Details
+                        </th>
+                        <th class="view_cow_update_th_td">
+                            Medication
+                        </th>
+                  
+                </tr>
+                {% for duplicate_cow in duplicate_cows %}
+                    {% if duplicate_cow.cow_name == cow.name_of_cow %}
+                        <tr class="cow_tab_tr">
+                            <td class="view_cow_update_th_td"><img src="{{ duplicate_cow.updated_image.url }}" width="70px" height="80px">
+
+                            </td>
+                            <td class="view_cow_update_th_td">
+                                {{duplicate_cow.month}}
+                            </td>
+                            <td class="view_cow_update_th_td">
+                                {{duplicate_cow.year}}
+                            </td>
+                            <td class="view_cow_update_th_td">
+                                {{duplicate_cow.current_weight}}
+                            </td>
+                            <td class="view_cow_update_th_td">
+                                {{duplicate_cow.monthly_food_expenditure}}
+                            </td>
+                            <td class="view_cow_update_th_td">
+                                {{duplicate_cow.food_consumed}}
+                            </td>
+                            <td class="view_cow_update_th_td">
+                                {{duplicate_cow.percentage_grass}}
+                            </td>
+                            <td class="view_cow_update_th_td">
+                                {{duplicate_cow.percentage_solid}}
+                            </td>
+                            <td class="view_cow_update_th_td">
+                                {{duplicate_cow.torka_date}}
+                            </td>
+                            <td class="view_cow_update_th_td">
+                                {{duplicate_cow.kurha_date}}
+                            </td>
+                            <td class="view_cow_update_th_td">
+                                {{duplicate_cow.badla_date}}
+                            
+                            </td>
+                            <td class="view_cow_update_th_td">
+                                {{duplicate_cow.name_of_the_disease}}
+                            </td>
+                            <td class="view_cow_update_th_td">
+                                {{duplicate_cow.details_on_the_disease}}
+                            </td>
+                            <td class="view_cow_update_th_td">
+                                {{duplicate_cow.medications}}
+                            </td>
+                        
+
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+                
+            </table>
+
+        </div>
+       <br>
+       <div class="print_btn">
+       <button  id = 'print' class="lg_out_btn print" value = 'text'> Print!</button>
+    </div>
+    </div>
+
+    <!-- <script type="text/javascript" src = "{% static 'entrepreneur/js/print.js' %}"></script> -->
+    <script>
+        function printData()
+        {
+          
+            var divToPrint=document.getElementById("printTable");
+            newWin= window.open("");
+            newWin.document.write(divToPrint.outerHTML);
+            newWin.document.close();
+            newWin.print();
+            //newWin.close();
+        }
+    
+        document.querySelector("#print").addEventListener("click", function(){
+          printData();
+        });
+        
+        </script>
+{% endblock  %}

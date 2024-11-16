@@ -1,0 +1,68 @@
+{% extends "entrepreneur/base.html" %}
+{%block content %} 
+<div class =''>
+    
+    <div class = 'for_table_title_section'>
+        <span class="table_title "><b>Cows</b></span>
+        <button class="lg_out_btn right_btn" onClick="window.location.reload()"><a class="search_text">Refresh</a></button>
+       
+        
+    </div>
+    <div class="for_table">
+    <form action = "{% url 'search_cow' %}" method ="post" class = ''>
+        {% csrf_token %}
+        <input type="text" name = 'search_cow' class="for_search_inputs" placeholder="Search By Anything">
+        <button type="submit" class="lg_out_btn for_search_btn"><a class="search_text">Search</a></button>
+    </form>
+    </div>
+    <br>
+    <div class="for_table" >
+        <table class="cow_tab">
+            <tr class="cow_tab_tr">
+                <th class="cow_tab_th_td">
+                    Sl
+                </th>
+                <th class="cow_tab_th_td">
+                    Name of the Cow
+                </th>
+                <th class="cow_tab_th_td">
+                    Breed
+                </th>
+                <th class="cow_tab_th_td">
+                    Color
+                </th>
+                <th class="cow_tab_th_td">
+                    Weight
+                </th>
+                <th class="cow_tab_th_td">
+                    Date of Purchase
+                </th>
+                <th class="cow_tab_th_td">
+                    Date of Birth
+                </th>
+                <th class="cow_tab_th_td">
+                    Actions
+                </th>
+            </tr>
+            
+            {% for result  in results %}
+                <tr class="cow_tab_tr">
+                   
+                    <td class="cow_tab_th_td">{{ forloop.counter }}</td>
+                    <td class="cow_tab_th_td">{{result.name_of_cow}}</td>
+                    <td class="cow_tab_th_td">{{result.breed}}</td>
+                    <td class="cow_tab_th_td">{{result.color}}</td>
+                    <td class="cow_tab_th_td">{{result.weight}}</td>
+                    <td class="cow_tab_th_td">{{result.purchase_date}}</td>
+                    <td class="cow_tab_th_td">{{result.date_of_birth}}</td>
+                    <td class="cow_tab_th_td">
+                        <a class="view_edit" href="{% url 'update_cow' result.id %}">Edit</a>
+                        <a class="view_edit" href="{% url 'view_cow' result.id %}">View</a>
+                        
+                    </td>
+                </tr>
+            {% endfor %}
+            </table>
+    </div>
+    </div>
+{%endblock %}
